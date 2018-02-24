@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block breadcrumb %}
+    <ol class="breadcrumb">
+        <li><a href="#"><span class="icon icon-home"> </span></a></li>
+        <li>Reviews</li>
+    </ol>
+{% endblock %}
+
+
+{% block body %}
+
+<div class="row">
+    {% load static %}
+    {% for reg in registrars %}
+    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+        <div class="registrar-list" style="background-color:#f2f1ef;">
+            <div class="reviews-image">
+                <a href="{% url 'review' reg.keyword %}">{% static 'imags/registrars/' as baseUrl %}<img
+                        src="{{ baseUrl }}{{reg.keyword}}_review.png"
+                        class="img-responsive" alt="{{reg.keyword}} review"/></a>
+            </div>
+            <p class="registrar-link"><a href="{% url 'review' reg.keyword %}">{{reg.name}}</a></p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

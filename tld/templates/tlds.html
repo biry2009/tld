@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block breadcrumb %}
+<ul class="breadcrumb">
+    <li><span class="icon icon-home"> </span>Home</li>
+    <li><a href="{% url 'tlds' %}"><span class="icon icon-beaker"> </span> TLDs</a></li>
+</ul>
+{% endblock %}
+
+{% block body %}
+
+<h1 style="text-align: center"> All Top Level Domain Extensions List </h1>
+
+{% for domain in domains %}
+<ul>
+    <li>
+       <h4><a href="{% url 'domain'  domain.name %}">{{domain.name}}</a></h4>
+    </li>
+</ul>
+{% endfor %}
+
+
+{% endblock %}

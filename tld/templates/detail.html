@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block breadcrumb %}
+    <ol class="breadcrumb">
+        <li><a href="{% url 'index' %}"><span class="icon icon-home"> </span>Home</a></li>
+        <li><a href="{% url 'blog' %}"><span class="icon icon-beaker"> </span>Blog</a></li>
+        <li>{{blog.title}}</li>
+    </ol>
+{% endblock %}
+
+{% block body %}
+
+<h1>{{blog.title|safe}}</h1>
+
+<div class="post-meta">
+    <ul>
+        {% if blog.author %}
+        <i class="icon-user"></i>
+        <li class="blog-author">{{blog.author|safe}}</li>
+        {% endif %}
+        <i class="icon-time"></i>
+        <li class="blog-time">{{blog.created|date:"F j,Y" }}</li>
+        {% if blog.category %}
+        <i class="icon-tags"></i>
+        <li class="blog-cate">{{blog.category|safe}}</li>
+        {% endif %}
+    </ul>
+</div>
+
+{{blog.content|safe}}
+
+{% endblock %}
