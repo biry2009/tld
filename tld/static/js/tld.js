@@ -13,3 +13,7 @@ $(document).ready(function () {
         table.search($(this).val()).draw();
     })
 });
+
+$(document).ready(function(){
+    $('.collapsible').collapsible();
+  });

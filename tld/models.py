@@ -1,11 +1,13 @@
 from django.db import models
 
+
 # Create your models here.
 class Domain(models.Model):
 
     class Meta:
         db_table = 'tlds_domain'
     name = models.CharField(max_length=20)
+    label = models.CharField(max_length=40, blank=True)
     description = models.TextField(blank=True)
     type = models.CharField(max_length=30)
     registry = models.CharField(max_length=100, blank=True)
@@ -77,7 +79,7 @@ class Blog(models.Model):
     title = models.CharField('title', max_length=100)
     author = models.CharField('author', max_length=16)
     slug = models.SlugField('slug', max_length=100, unique=True)
-    content = models.TextField()
+    content = models.TextField('content')
     created = models.DateTimeField('create_time', auto_now_add=True)
     category = models.CharField('category', max_length=50, blank=True)
     tags = models.CharField('tag', max_length=100, blank=True)

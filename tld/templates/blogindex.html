@@ -2,22 +2,33 @@
 
 {% block body %}
 
-{% for blog in blogs %}
+    {% for blog in blogs %}
 
-<h2><a href="{{blog.slug|safe}}">{{blog.title|safe}}</a></h2>
+        <h2><a href="{{ blog.slug|safe }}">{{ blog.title|safe }}</a></h2>
 
-<div class="post-meta">
-    <ul>
-    <i class="icon-user"></i><li class="blog-author">{{blog.author|safe}}</li>
-    <i class="icon-time"></i><li class="blog-time">{{blog.created|date:"F j,Y" }}</li>
-    <i class="icon-tags"></i><li class="blog-cate">{{blog.category|safe}}</li>
-        </ul>
-</div>
+        <div class="">
+            {% if blog.author %}
+                <div class="chip light-green-text text-darken-2">
+                    {% load staticfiles %}
+                    <i class="fa-address-book-o"></i>{{ blog.author|safe }}
+                </div>
+            {% endif %}
+            {% if blog.author %}
+                <div class="chip">
+                    <i class="material-icons">schedule</i>{{ blog.created|date:"F j,Y" }}
+                </div>
+            {% endif %}
+            {% if blog.author %}
+                <div class="chip">
+                    <i class="material-icons">loyalty</i>{{ blog.category|safe }}
+                </div>
+            {% endif %}
+        </div>
 
-<article>
-    {{blog.content|safe}}
-</article>
+        <article>
+            {{ blog.content|safe }}
+        </article>
 
-{% endfor %}
+    {% endfor %}
 
 {% endblock %}

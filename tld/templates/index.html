@@ -2,56 +2,54 @@
 
 
 {% block body %}
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-4 col-lg-offset-4 col-xs-8 col-xs-offset-2">
-                <div class="input-group input-group-lg">
-                    <span class="input-group-addon" id="basic-addon1 search-domain"><i class="icon-search"></i></span>
-                    <input type="text" class="form-control" id="search-domain" placeholder="Search for ..."
-                           aria-describedby="basic-addon1">
-                </div>
-                <!-- /input-group -->
-                <div class="search-tip">
-                    <ul class="search-list">
-                        <li><span class="label label-warning">.com</span></li>
-                        <li><span class="label label-warning">.net</span></li>
-                        <li><span class="label label-warning">.org</span></li>
-                        <li><span class="label label-warning">.co</span></li>
-                    </ul>
-                </div>
-                <!-- /input-group -->
-            </div>
-        </div>
-      <div class="row">
-          <div class="col-lg-10 col-lg-offset-1 ">
 
-              <table id="example" class="table table-hover price-table" cellspacing="0" width="100%">
-                  <thead class="price-thead">
-                  <tr>
-                      <th class="price-th">Domain</th>
-                      <th></th>
-                      <th class="price-th">Register</th>
-                      <th></th>
-                      <th class="price-th">Renewal</th>
-                      <th></th>
-                      <th class="price-th">Transfer</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  {% for price in prices %}
-                      <tr class="price-td">
-                          <td class="price-td"><a href="#">{{ price.name }}</a></td>
-                          <td class="price-td"><a href="#">{{ price.reg }}</a></td>
-                          <td class="price-td"><a href="#">${{ price.reg_p }}</a></td>
-                          <td class="price-td"><a href="#">{{ price.rene }}</a></td>
-                          <td class="price-td"><a href="#">${{ price.rene_p }}</a></td>
-                          <td class="price-td"><a href="#">{{ price.tran }}</a></td>
-                          <td class="price-td"><a href="#">${{ price.tran_p }}</a></td>
-                      </tr>
-                  {% endfor %}
-                  </tbody>
-              </table>
-          </div>
-      </div>
+    <div class="row">
+        <form class="col l8 offset-l2 s10 offset-s1">
+            <div class="input-field">
+                <i class="material-icons prefix">search</i>
+                <input id="icon_prefix" type="text" class="validate">
+                <label for="icon_prefix">Search String...</label>
+            </div>
+        </form>
     </div>
+    <div class="row">
+        <div class="col l8 offset-l2 s6 search-tip">
+            <ul class="search-list">
+                <li><a class="waves-effect waves-light btn">.com</a></li>
+                <li><a class="waves-effect waves-light btn">.org.org.</a></li>
+                <li><a class="waves-effect waves-light btn">.net</a></li>
+                <li><a class="waves-effect waves-light btn">.co</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- /input-group -->
+
+
+    <table id="example" class="table table-hover price-table" cellspacing="0" width="100%">
+        <thead class="price-thead">
+        <tr>
+            <th class="price-th">Domain</th>
+            <th></th>
+            <th class="price-th">Register</th>
+            <th></th>
+            <th class="price-th">Renewal</th>
+            <th></th>
+            <th class="price-th">Transfer</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for price in prices %}
+            <tr class="price-td">
+                <td class="price-td"><a href="#">{{ price.name }}</a></td>
+                <td class="price-td"><a href="#">{{ price.reg }}</a></td>
+                <td class="price-td"><a href="#">${{ price.reg_p }}</a></td>
+                <td class="price-td"><a href="#">{{ price.rene }}</a></td>
+                <td class="price-td"><a href="#">${{ price.rene_p }}</a></td>
+                <td class="price-td"><a href="#">{{ price.tran }}</a></td>
+                <td class="price-td"><a href="#">${{ price.tran_p }}</a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}

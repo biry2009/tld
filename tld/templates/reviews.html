@@ -1,28 +1,65 @@
 {% extends "base.html" %}
 
 {% block breadcrumb %}
-    <ol class="breadcrumb">
-        <li><a href="#"><span class="icon icon-home"> </span></a></li>
-        <li>Reviews</li>
-    </ol>
 {% endblock %}
 
 
 {% block body %}
-
-<div class="row">
-    {% load static %}
-    {% for reg in registrars %}
-    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-        <div class="registrar-list" style="background-color:#f2f1ef;">
-            <div class="reviews-image">
-                <a href="{% url 'review' reg.keyword %}">{% static 'imags/registrars/' as baseUrl %}<img
-                        src="{{ baseUrl }}{{reg.keyword}}_review.png"
-                        class="img-responsive" alt="{{reg.keyword}} review"/></a>
+    <div class="row">
+        {% load static %}
+        {% for reg in registrars %}
+            <div class="col l3 m6 s12">
+                <div class="card hoverable grey lighten-3">
+                    <div class="card-image">
+                        <a href="{% url 'review' reg.keyword %}">{% static 'imags/registrars/' as baseUrl %}<img
+                                src="{{ baseUrl }}{{ reg.keyword }}_review.png"
+                                class="responsive-img" alt="{{ reg.keyword }} review"/></a>
+                    </div>
+                    <div class="card-content center-align">
+                        <i class="material-icons yellow600">star</i>
+                        <i class="material-icons yellow600">star</i>
+                    </div>
+                    <div class="card-action center-align">
+                        <a href="{% url 'review' reg.keyword %}">{{ reg.name }}</a>
+                    </div>
+                </div>
             </div>
-            <p class="registrar-link"><a href="{% url 'review' reg.keyword %}">{{reg.name}}</a></p>
-        </div>
+        {% endfor %}
+
+
+           {% for reg in registrars %}
+            <div class="col l3 m6 s12">
+                <div class="card hoverable grey lighten-3">
+                    <div class="card-image">
+                        <a href="{% url 'review' reg.keyword %}">{% static 'imags/registrars/' as baseUrl %}<img
+                                src="{{ baseUrl }}{{ reg.keyword }}_review.png"
+                                class="responsive-img" alt="{{ reg.keyword }} review"/></a>
+                    </div>
+                    <div class="card-content">
+                        <p>我是一个很简单的卡片。我很擅长于包含少量的信息。我很方便，因为我只需要一个小标记就可以有效地使用。</p>
+                    </div>
+                    <div class="card-action center-align">
+                        <a href="{% url 'review' reg.keyword %}">{{ reg.name }}</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}       {% for reg in registrars %}
+            <div class="col l3 m6 s12">
+                <div class="card hoverable">
+                    <div class="card-image">
+                        <a href="{% url 'review' reg.keyword %}">{% static 'imags/registrars/' as baseUrl %}<img
+                                src="{{ baseUrl }}{{ reg.keyword }}_review.png"
+                                class="responsive-img" alt="{{ reg.keyword }} review"/></a>
+                    </div>
+                    <div class="card-content">
+                        <p>我是一个很简单的卡片。我很擅长于包含少量的信息。我很方便，因为我只需要一个小标记就可以有效地使用。</p>
+                    </div>
+                    <div class="card-action center-align">
+                        <a href="{% url 'review' reg.keyword %}">{{ reg.name }}</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+
     </div>
-    {% endfor %}
-</div>
 {% endblock %}

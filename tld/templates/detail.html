@@ -1,32 +1,34 @@
 {% extends "base.html" %}
 
-{% block breadcrumb %}
-    <ol class="breadcrumb">
-        <li><a href="{% url 'index' %}"><span class="icon icon-home"> </span>Home</a></li>
-        <li><a href="{% url 'blog' %}"><span class="icon icon-beaker"> </span>Blog</a></li>
-        <li>{{blog.title}}</li>
-    </ol>
+{% block blogtitle %}
+    <div class="center-align">
+        <h3> {{ blog.title|safe }} </h3>
+        <a href="{% url 'index' %}"><span class="icon icon-home"> </span>Home</a> /
+        <a href="{% url 'blog' %}"><span class="icon icon-beaker"> </span>Blog</a> /
+        {{ blog.title|safe }}
+    </div>
 {% endblock %}
 
 {% block body %}
-
-<h1>{{blog.title|safe}}</h1>
-
-<div class="post-meta">
-    <ul>
+    {{ blog.content|safe }}
+    <div class="center-align">
         {% if blog.author %}
-        <i class="icon-user"></i>
-        <li class="blog-author">{{blog.author|safe}}</li>
+            <div class="chip  light-green-text text-darken-2">
+                {% load staticfiles %}
+                <img src="{% static 'imags/logo.png' %}" alt="Contact Person">{{ blog.author|safe }}
+            </div>
         {% endif %}
-        <i class="icon-time"></i>
-        <li class="blog-time">{{blog.created|date:"F j,Y" }}</li>
-        {% if blog.category %}
-        <i class="icon-tags"></i>
-        <li class="blog-cate">{{blog.category|safe}}</li>
+        {% if blog.author %}
+            <div class="chip">
+                <i class="icon-time"></i>
+                {{ blog.created|date:"F j,Y" }}
+            </div>
         {% endif %}
-    </ul>
-</div>
-
-{{blog.content|safe}}
-
+        {% if blog.author %}
+            <div class="chip">
+                <i class="icon-time"></i>
+                {{ blog.category|safe }}
+            </div>
+        {% endif %}
+    </div>
 {% endblock %}

@@ -1,6 +1,7 @@
 from django.contrib import admin
 from .models import Domain, Registrar, Cheapest, Price
 from django_summernote.admin import SummernoteModelAdmin
+
 from .models import Blog, Comment
 
 # Register your models here.
@@ -23,11 +24,11 @@ admin.site.register(Price, PriceAdmin)
 # Register your models here.
 
 
-class BlogAdmin(admin.ModelAdmin):
-    list_display = ('title', 'slug', 'content', 'tags')
-
+# Apply summernote to all TextField in model.
 class BlogAdmin(SummernoteModelAdmin):
-    summernote_fields = ('content',)
+    list_display = ('title', 'slug', 'content', 'tags')
+    summernote_fields = '__all__'
+
 
 admin.site.register(Blog, BlogAdmin)
 admin.site.register(Comment)
