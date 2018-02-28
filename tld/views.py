@@ -1,4 +1,4 @@
-# coding: utf-8
+# -*- coding: utf-8 -*-
 
 from django.shortcuts import render, get_object_or_404
 from .models import Domain, Registrar, Cheapest, Price
@@ -25,7 +25,7 @@ def review(request, name):
         return render(request, '404.html')
 
 def tlds(request):
-    domains = Domain.objects.all()
+    domains = Domain.objects.order_by("name")
 
     return render(request, 'tlds.html', {'domains': domains})
 

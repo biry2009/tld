@@ -1,23 +1,48 @@
 {% extends "base.html" %}
 
 {% block breadcrumb %}
-<ul class="breadcrumb">
-    <li><span class="icon icon-home"> </span>Home</li>
-    <li><a href="{% url 'tlds' %}"><span class="icon icon-beaker"> </span> TLDs</a></li>
-</ul>
+    <ul class="breadcrumb">
+        <li><span class="icon icon-home"> </span>Home</li>
+        <li><a href="{% url 'tlds' %}"><span class="icon icon-beaker"> </span> TLDs</a></li>
+    </ul>
 {% endblock %}
 
 {% block body %}
 
-<h1 style="text-align: center"> All Top Level Domain Extensions List </h1>
+    <h3 style="text-align: center"> All Top Level Domain Extensions List </h3>
+    <table id="tlds" class="striped centered responsive-table" cellspacing="0" width="100%">
+        <thead>
+        <tr>
+            <th>String</th>
+            <th>Label</th>
+        </tr>
+        </thead>
+        <tbody>
 
-{% for domain in domains %}
-<ul>
-    <li>
-       <h4><a href="{% url 'domain'  domain.name %}">{{domain.name}}</a></h4>
-    </li>
-</ul>
-{% endfor %}
+        {% for domain in domains %}
+            <tr>
+                <td>
+                    {% if domain.lrm == True %}
+                        <a href="{% url 'domain' domain.name %}">.{{ domain.name }}</a>
+                    {% endif %}
+                    {% if domain.lrm == False %}
+                        <a href="{% url 'domain' domain.name %}">{{ domain.name }}.</a>
+                    {% endif %}
+                </td>
+                <td>{{ domain.label }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 
+{% endblock %}
 
+{% block js %}
+    <script>
+        $(document).ready(function() {
+    $('#tlds').DataTable({
+
+    });
+} );
+    </script>
 {% endblock %}

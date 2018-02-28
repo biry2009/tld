@@ -24,7 +24,7 @@ from tld import views as tld_views
 urlpatterns = [
     url(r'^summernote/', include('django_summernote.urls')),
     url(r'tlds/$', tld_views.tlds, name="tlds"),
-    url(r'^tlds/(?P<name>\w+)/$', tld_views.domain, name="domain"),
+    url(r'^tlds/(?P<name>[\w\W]+)/$', tld_views.domain, name="domain"),
     url(r'^$', tld_views.index, name="index"),
     url(r'^reviews/$', tld_views.reviews, name="reviews"),
     url(r'^review/(?P<name>\w+)$', tld_views.review, name="review"),

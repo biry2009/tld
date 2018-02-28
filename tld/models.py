@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from django.db import models
 
 
@@ -6,10 +8,11 @@ class Domain(models.Model):
 
     class Meta:
         db_table = 'tlds_domain'
-    name = models.CharField(max_length=20)
+    name = models.CharField(max_length=20, unique=True)
+    lrm = models.BooleanField(default=True)
     label = models.CharField(max_length=40, blank=True)
     description = models.TextField(blank=True)
-    type = models.CharField(max_length=30)
+    type = models.CharField(max_length=30, blank=True)
     registry = models.CharField(max_length=100, blank=True)
     status = models.CharField(max_length=30, blank=True)
     cate = models.CharField(max_length=30, blank=True)
