@@ -4,36 +4,33 @@
 {% block body %}
 
     <div class="row">
-        <form class="col l8 offset-l2 s10 offset-s1">
-            <div class="input-field">
-                <i class="material-icons prefix">search</i>
-                <input id="icon_prefix" type="text" class="validate">
-                <label for="icon_prefix">Search String...</label>
-            </div>
-        </form>
-    </div>
-    <div class="row">
-        <div class="col l8 offset-l2 s12">
-                <a class="waves-effect waves-light btn">.com</a>
-                <a class="waves-effect waves-light btn">.org.org.</a>
-                <a class="waves-effect waves-light btn">.net</a>
-                <a class="waves-effect waves-light btn">.co</a>
+        <div class="col l8 offset-l2 s10 offset-s1">
+            <input id="search_string" placeholder="Search for ..." type="text">
+
         </div>
     </div>
 
-    <!-- /input-group -->
+    <div class="row">
+        <div class="col l8 offset-l2 s12 center">
+            <a href="{% url 'domain' 'com' %}" class="task-cat red accent-2">com</a>
+            <a href="{% url 'domain' 'net' %}" class="task-cat red accent-2">net</a>
+            <a href="{% url 'domain' 'org' %}" class="task-cat red accent-2">org</a>
+            <a href="{% url 'domain' 'xyz' %}" class="task-cat red accent-2">xyz</a>
 
+        </div>
 
-    <table id="example" class="table table-hover price-table" cellspacing="0" width="100%">
-        <thead class="price-thead">
+    </div>
+
+    <table id="tlds" class="table table-hover price-table" cellspacing="0" width="100%">
+        <thead>
         <tr>
-            <th class="price-th">Domain</th>
+            <th>Domain</th>
             <th></th>
-            <th class="price-th">Register</th>
+            <th>Register</th>
             <th></th>
-            <th class="price-th">Renewal</th>
+            <th>Renewal</th>
             <th></th>
-            <th class="price-th">Transfer</th>
+            <th>Transfer</th>
         </tr>
         </thead>
         <tbody>
@@ -50,4 +47,20 @@
         {% endfor %}
         </tbody>
     </table>
+{% endblock %}
+
+{% block js %}
+    <script>
+        $(document).ready(function () {
+            var oTable = $('#tlds').DataTable({
+                "searching":true,
+                "pageLength": 16,
+                "dom": 'tp'
+            });
+
+            $('#search_string').keyup(function () {
+                oTable.search($(this).val()).draw();
+            });
+        });
+    </script>
 {% endblock %}

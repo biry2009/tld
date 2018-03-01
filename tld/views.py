@@ -3,13 +3,12 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Domain, Registrar, Cheapest, Price
 from .models import Blog, Comment
-
-
-from django.http import HttpResponse
+from .data import PriceData
 
 
 def index(request):
-    return render(request, 'index.html')
+    prices = PriceData.get_price()
+    return render(request, 'index.html', {'prices': prices})
 
 
 def reviews(request):

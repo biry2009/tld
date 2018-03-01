@@ -28,15 +28,15 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
-
     {% block head %}{% endblock %}
 </head>
 <body>
 <nav>
     {% load staticfiles %}
     <div class="nav-wrapper container">
-        <a href="{% url 'index' %}" class="brand-logo"><img src="{% static 'imags/logo.png' %}" class="img-responsive" width="200"
-                                            alt=""/></a>
+        <a href="{% url 'index' %}" class="brand-logo"><img src="{% static 'imags/logo.png' %}" class="responsive-img"
+                                                            width="200"
+                                                            alt=""/></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="{% url 'reviews' %}">Reviews</a></li>
             <li><a href="{% url 'blog' %}">Blog</a></li>
@@ -47,17 +47,10 @@
 </nav>
 
 {% block blogtitle %}{% endblock %}
-
 <div class="container">
-    <div class="row">
-        <div class="col l12 s12">
-
-            {% block breadcrumb %}{% endblock %}
-            {% block body %}{% endblock %}
-        </div>
-    </div>
+    {% block breadcrumb %}{% endblock %}
+    {% block body %}{% endblock %}
 </div>
-
 <footer class="page-footer">
     <div class="container">
         <div class="row">
@@ -77,11 +70,14 @@
             </div>
         </div>
     </div>
-    <div class="footer-copyright">
+    <div class="footer-copy">
         <div class="container">
-            <p>© 2017-2018 Made by <i style="color:#ee5253;" class="icon-heart "></i> <a
-                    href="{% url 'index' %}">Cheap TLDs</a></p>
-            <a class="grey-text text-lighten-4 right" href="#!">更多链接</a>
+            <div class="center"><img src="{% static 'imags/logo-2.jpg' %}" class="responsive-img circle" width="60" alt=""/>
+            </div>
+            <div class="center-align">CheapTLDs</div>
+            <div class="center-align footer-copyright-info">© 2018 CheapTLDs, all rights reserved. Made with
+                <i style="color:#ee5253;" class="icon-heart "></i> for a cheap domain.
+            </div>
         </div>
     </div>
 </footer>
