@@ -4,9 +4,12 @@
 {% block body %}
 
     <div class="row">
-        <div class="col l8 offset-l2 s10 offset-s1">
-            <input id="search_string" placeholder="Search for ..." type="text">
-
+        <div class="col l8 offset-l2 s10 offset-s1 input-field">
+            <div class="input-field">
+                <input id="search" type="search">
+                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                <i class="material-icons">close</i>
+            </div>
         </div>
     </div>
     <div class="row">
@@ -20,7 +23,7 @@
 
     </div>
 
-    <table id="tlds" class="table table-hover price-table" cellspacing="0" width="100%">
+    <table id="tlds" class="table striped responsive-table" cellspacing="0" width="100%">
         <thead>
         <tr>
             <th>Domain</th>
@@ -52,12 +55,12 @@
     <script>
         $(document).ready(function () {
             var oTable = $('#tlds').DataTable({
-                "searching":true,
+                "searching": true,
                 "pageLength": 16,
                 "dom": 'tp'
             });
 
-            $('#search_string').keyup(function () {
+            $('#search').keyup(function () {
                 oTable.search($(this).val()).draw();
             });
         });

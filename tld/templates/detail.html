@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 
 {% block blogtitle %}
-    <div class="center-align">
-        <h3> {{ blog.title|safe }} </h3>
+    <div class="center-align ">
+        <h1> {{ blog.title|safe }} </h1>
         <a href="{% url 'index' %}"><span class="icon icon-home"> </span>Home</a> /
         <a href="{% url 'blog' %}"><span class="icon icon-beaker"> </span>Blog</a> /
-        {{ blog.title|safe }}
+        <span class="grey-text">{{ blog.title|safe }}</span>
     </div>
 {% endblock %}
 

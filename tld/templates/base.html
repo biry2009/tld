@@ -19,15 +19,15 @@
     {% load staticfiles %}
 
     <link href="https://cdn.bootcss.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css"/>
+    <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}" type="text/css" >
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" >
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" >
 
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+    <script src="{% static 'js/materialize.min.js' %}"></script>
     {% block head %}{% endblock %}
 </head>
 <body>
@@ -51,10 +51,13 @@
     {% block breadcrumb %}{% endblock %}
     {% block body %}{% endblock %}
 </div>
+
 <footer class="page-footer">
+
     <div class="container">
         <div class="row">
             <div class="col l6 s12">
+
                 <h5 class="white-text">页脚内容</h5>
 
                 <p class="grey-text text-lighten-4">你可以用行和列来组织你的页脚内容。</p>
