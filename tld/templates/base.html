@@ -4,65 +4,58 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-
     {% if title %}
         <title>{{ title }} - CheapTLDs.com</title>
     {% else %}
         <title>The Cheapest Top Level Domains List | Cheap TLDs</title>
     {% endif %}
-    <meta name="description"
-          content="In this post, Perrin looks into the new webmasters trend of 2018: Using your visitor&#039;s computers to mine crypto currencies."/>
+    {% block headdes %}{% endblock %}
     <link rel="shortcut icon" href="/favicon.ico">
-
-    <link rel="canonical" href="https://backlinko.com/google-rankbrain-seo"/>
-
     {% load staticfiles %}
-
-    <link href="https://cdn.bootcss.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}" type="text/css" >
     <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" >
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" >
 
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/jquery-2.1.1.min.js' %}"></script>
     <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script src="{% static 'js/materialize.min.js' %}"></script>
     {% block head %}{% endblock %}
 </head>
 <body>
-<nav>
+<nav class="teal darken-2">
     {% load staticfiles %}
-    <div class="nav-wrapper container">
-        <a href="{% url 'index' %}" class="brand-logo"><img src="{% static 'imags/logo.png' %}" class="responsive-img"
-                                                            width="200"
-                                                            alt=""/></a>
+    <div class="nav-wrapper row">
+        <div class="col l10 offset-l1">
+        <a href="{% url 'index' %}" class="brand-logo"><img src="{% static 'imags/logo.png' %}" width="48" alt=""/>CheapTLDs</a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="{% url 'index' %}">Prices</a></li>
             <li><a href="{% url 'reviews' %}">Reviews</a></li>
             <li><a href="{% url 'blog' %}">Blog</a></li>
             <li><a href="{% url 'contact' %}">Contact</a></li>
             <li><a href="{% url 'about' %}">About</a></li>
         </ul>
+        </div>
     </div>
 </nav>
 
 {% block blogtitle %}{% endblock %}
+{% block indexbody %}{% endblock %}
 <div class="container">
     {% block breadcrumb %}{% endblock %}
     {% block body %}{% endblock %}
 </div>
 
-<footer class="page-footer">
+<footer class="page-footer teal">
 
-    <div class="container">
         <div class="row">
-            <div class="col l6 s12">
+            <div class="col l6 offset-l1 s12">
 
                 <h5 class="white-text">页脚内容</h5>
 
                 <p class="grey-text text-lighten-4">你可以用行和列来组织你的页脚内容。</p>
             </div>
-            <div class="col l4 offset-l2 s12">
+            <div class="col l4 offset-l1 s12">
                 <h5 class="white-text">链接</h5>
                 <ul>
                     <li><a class="grey-text text-lighten-3" href="#!">链接 1</a></li>
@@ -72,10 +65,9 @@
                 </ul>
             </div>
         </div>
-    </div>
-    <div class="footer-copy">
+    <div class="footer-copy teal darken-2">
         <div class="container">
-            <div class="center"><img src="{% static 'imags/logo-2.jpg' %}" class="responsive-img circle" width="60" alt=""/>
+            <div class="center"><img src="{% static 'imags/logo.png' %}" class="responsive-img" width="68" alt=""/>
             </div>
             <div class="center-align">CheapTLDs</div>
             <div class="center-align footer-copyright-info">© 2018 CheapTLDs, all rights reserved. Made with

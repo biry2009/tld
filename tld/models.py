@@ -19,6 +19,7 @@ class Domain(models.Model):
     popular = models.IntegerField(blank=True)
     restrictions = models.CharField(max_length=200, blank=True)
     sources = models.TextField(blank=True)
+
     def __str__(self):
         return self.name
 
@@ -27,10 +28,9 @@ class Registrar(models.Model):
 
     class Meta:
         db_table = 'tlds_registrar'
-    keyword = models.CharField(max_length=20)
+    keyword = models.CharField(max_length=20, unique=True)
     name = models.CharField(max_length=30)
     url = models.CharField(max_length=50)
-    color = models.CharField(max_length=10, default="#fff")
     review = models.TextField(blank=True)
     rating = models.FloatField(blank=True)
 
@@ -46,7 +46,8 @@ class Price(models.Model):
     register = models.FloatField(blank=True)
     renewal = models.FloatField(blank=True)
     transfer = models.FloatField(blank=True)
-    whois = models.FloatField(blank=True)
+    promo = models.FloatField(blank=True)
+    privacy = models.FloatField(blank=True)
 
 
 # Cheapest Price Table

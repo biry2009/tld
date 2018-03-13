@@ -1,54 +1,57 @@
 {% extends "base.html" %}
 
 
-{% block body %}
-
-    <div class="row">
-        <div class="col l8 offset-l2 s10 offset-s1 input-field">
-            <div class="input-field">
-                <input id="search" type="search">
-                <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-                <i class="material-icons">close</i>
+{% block indexbody %}
+    <div class="bg-index">
+        <div class="row">
+            <div class="col l8 offset-l2 s10 offset-s1 input-field">
+                <div class="input-field">
+                    <input id="search" type="search">
+                    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+                    <i class="material-icons">close</i>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col l8 offset-l2 s12 center">
-            <a href="{% url 'domain' 'com' %}" class="task-cat red accent-2">com</a>
-            <a href="{% url 'domain' 'net' %}" class="task-cat red accent-2">net</a>
-            <a href="{% url 'domain' 'org' %}" class="task-cat red accent-2">org</a>
-            <a href="{% url 'domain' 'xyz' %}" class="task-cat red accent-2">xyz</a>
+        <div class="row">
+            <div class="col l10 offset-l1 s12 center hide-on-small-only">
+                <a href="{% url 'domain' 'com' %}" class="task-cat red accent-2">com</a>
+                <a href="{% url 'domain' 'net' %}" class="task-cat red accent-2">net</a>
+                <a href="{% url 'domain' 'org' %}" class="task-cat red accent-2">org</a>
+                <a href="{% url 'domain' 'xyz' %}" class="task-cat red accent-2">xyz</a>
+            </div>
+            <div class="col l10 offset-l1 s12">
+                <table id="tlds" class="table striped" cellspacing="0" width="100%">
+                    <thead>
+                    <tr class="price-table-tr">
+                        <th class="price-table-th">Domain</th>
+                        <th class="price-table-th"></th>
+                        <th class="price-table-th">Register</th>
+                        <th class="hide-on-small-only price-table-th"></th>
+                        <th class="hide-on-small-only price-table-th">Renewal</th>
+                        <th class="hide-on-small-only price-table-th"></th>
+                        <th class="hide-on-small-only price-table-th">Transfer</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for price in prices %}
+                        <tr class="price-td">
+                            <td class="price-td"><a href="{% url 'domain' price.name %}" class="waves-effect waves-light btn">{{ price.name }}</a></td>
+                            <td class="price-td"><a href="#">{{ price.reg }}</a></td>
+                            <td class="price-td"><a href="#">${{ price.reg_p }}</a></td>
+                            <td class="price-td hide-on-small-only"><a href="#">{{ price.rene }}</a></td>
+                            <td class="price-td hide-on-small-only"><a href="#">${{ price.rene_p }}</a></td>
+                            <td class="price-td hide-on-small-only"><a href="#">{{ price.tran }}</a></td>
+                            <td class="price-td hide-on-small-only"><a href="#">${{ price.tran_p }}</a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
 
         </div>
 
-    </div>
 
-    <table id="tlds" class="table striped responsive-table" cellspacing="0" width="100%">
-        <thead>
-        <tr>
-            <th>Domain</th>
-            <th></th>
-            <th>Register</th>
-            <th></th>
-            <th>Renewal</th>
-            <th></th>
-            <th>Transfer</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for price in prices %}
-            <tr class="price-td">
-                <td class="price-td"><a href="#">{{ price.name }}</a></td>
-                <td class="price-td"><a href="#">{{ price.reg }}</a></td>
-                <td class="price-td"><a href="#">${{ price.reg_p }}</a></td>
-                <td class="price-td"><a href="#">{{ price.rene }}</a></td>
-                <td class="price-td"><a href="#">${{ price.rene_p }}</a></td>
-                <td class="price-td"><a href="#">{{ price.tran }}</a></td>
-                <td class="price-td"><a href="#">${{ price.tran_p }}</a></td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+    </div>
 {% endblock %}
 
 {% block js %}
@@ -56,6 +59,8 @@
         $(document).ready(function () {
             var oTable = $('#tlds').DataTable({
                 "searching": true,
+                "order": [[ 2, 'asc' ]],
+                "columnDefs": [{ "targets": [1,3,5], "orderable": false }],
                 "pageLength": 16,
                 "dom": 'tp'
             });

@@ -2816,8 +2816,8 @@ td, th {
 
 .collection .collection-item.avatar .circle {
     position: absolute;
-    width: 42px;
-    height: 42px;
+    width: 54px;
+    height: 54px;
     overflow: hidden;
     left: 15px;
     display: inline-block;
@@ -2825,19 +2825,21 @@ td, th {
 }
 
 .collection .collection-item.avatar i.circle {
-    font-size: 18px;
-    line-height: 42px;
+    font-size: 28px;
+    line-height: 54px;
     color: #fff;
     background-color: #999;
     text-align: center
 }
 
 .collection .collection-item.avatar .title {
-    font-size: 16px
+    font-size: 1.2rem;
+    padding-left: 10px;
 }
 
 .collection .collection-item.avatar p {
-    margin: 0
+    margin: 0;
+    padding-left:10px;
 }
 
 .collection .collection-item.avatar .secondary-content {
@@ -4074,12 +4076,12 @@ nav .input-field label.active {
 
 @media only screen and (min-width: 601px) {
     nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
-        height: 64px;
-        line-height: 64px
+        height: 78px;
+        line-height: 78px
     }
 
     .navbar-fixed {
-        height: 64px
+        height: 78px
     }
 }
 

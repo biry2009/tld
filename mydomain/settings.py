@@ -24,6 +24,7 @@ SECRET_KEY = 'azmw(pcx&=eu%r6u33g5%_k2=ptu4l)j(d72i+i$8^rzhghx&*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+SITE_ID=1
 
 ALLOWED_HOSTS = []
 

@@ -1,48 +1,321 @@
 {% extends "base.html" %}
-
 {% block breadcrumb %}
-    <ul class="breadcrumb">
-        <li><span class="icon icon-home"> </span>Home</li>
-        <li><a href="{% url 'tlds' %}"><span class="icon icon-beaker"> </span> TLDs</a></li>
-    </ul>
+    <div class="breadcrumb">
+        Home / <a href="{% url 'tlds' %}">TLDs</a>
+    </div>
 {% endblock %}
-
 {% block body %}
+    <h3 class="center"> All Top Level Domain Extensions List </h3>
+    <div class="row">
+        <div id="a" class="row">
+            <h3 class="char-cate">A.</h3>
+            {% for domain in domains %}
+                {% if domain.name|slice:'0:1'|lower == 'a' %}
+                    <div class="col s6 m3 l3">
+                        <a href="{% url 'domain' domain.name %}">{{ domain.name }}</a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
 
-    <h3 style="text-align: center"> All Top Level Domain Extensions List </h3>
-    <table id="tlds" class="striped centered responsive-table" cellspacing="0" width="100%">
-        <thead>
-        <tr>
-            <th>String</th>
-            <th>Label</th>
-        </tr>
-        </thead>
-        <tbody>
+        <div id="b" class="row">
+            <h3 class="char-cate">B.</h3>
+            {% for domain in domains %}
+                {% if domain.name|slice:'0:1'|lower == 'b' %}
+                    <div class="col s6 m3 l3">
+                        <a href="{% url 'domain' domain.name %}">{{ domain.name }}</a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
 
+        <div id="c" class="row">
+            <h3 class="char-cate">C.</h3>
+            {% for domain in domains %}
+                {% if domain.name|slice:'0:1'|lower == 'c' %}
+                    <div class="col s6 m3 l3">
+                        <a href="{% url 'domain' domain.name %}">{{ domain.name }}</a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <div id="d" class="row">
+            <h3 class="char-cate">D.</h3>
+            {% for domain in domains %}
+                {% if domain.name|slice:'0:1'|lower == 'd' %}
+                    <div class="col s6 m3 l3">
+                        <a href="{% url 'domain' domain.name %}">{{ domain.name }}</a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <div id="e" class="row">
+            <h3 class="char-cate">E.</h3>
+            {% for domain in domains %}
+                {% if domain.name|slice:'0:1'|lower == 'e' %}
+                    <div class="col s6 m3 l3">
+                        <a href="{% url 'domain' domain.name %}">{{ domain.name }}</a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <div id="f" class="row">
+            <h3 class="char-cate">F.</h3>
+            {% for domain in domains %}
+                {% if domain.name|slice:'0:1'|lower == 'f' %}
+                    <div class="col s6 m3 l3">
+                        <a href="{% url 'domain' domain.name %}">{{ domain.name }}</a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <div id="g" class="row">
+            <h3 class="char-cate">G.</h3>
+            {% for domain in domains %}
+                {% if domain.name|slice:'0:1'|lower == 'g' %}
+                    <div class="col s6 m3 l3">
+                        <a href="{% url 'domain' domain.name %}">{{ domain.name }}</a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <div id="h" class="row">
+            <h3 class="char-cate">H.</h3>
+            {% for domain in domains %}
+                {% if domain.name|slice:'0:1'|lower == 'h' %}
+                    <div class="col s6 m3 l3">
+                        <a href="{% url 'domain' domain.name %}">{{ domain.name }}</a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <div id="i" class="row">
+            <h3 class="char-cate">I.</h3>
+            {% for domain in domains %}
+                {% if domain.name|slice:'0:1'|lower == 'i' %}
+                    <div class="col s6 m3 l3">
+                        <a href="{% url 'domain' domain.name %}">{{ domain.name }}</a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <div id="j" class="row">
+            <h3 class="char-cate">J.</h3>
+            {% for domain in domains %}
+                {% if domain.name|slice:'0:1'|lower == 'j' %}
+                    <div class="col s6 m3 l3">
+                        <a href="{% url 'domain' domain.name %}">{{ domain.name }}</a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <div id="k" class="row">
+            <h3 class="char-cate">K.</h3>
+            {% for domain in domains %}
+                {% if domain.name|slice:'0:1'|lower == 'k' %}
+                    <div class="col s6 m3 l3">
+                        <a href="{% url 'domain' domain.name %}">{{ domain.name }}</a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div id="l" class="row">
+            <h3 class="char-cate">L.</h3>
+            {% for domain in domains %}
+                {% if domain.name|slice:'0:1'|lower == 'l' %}
+                    <div class="col s6 m3 l3">
+                        <a href="{% url 'domain' domain.name %}">{{ domain.name }}</a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <div id="m" class="row">
+            <h3 class="char-cate">M.</h3>
+            {% for domain in domains %}
+                {% if domain.name|slice:'0:1'|lower == 'm' %}
+                    <div class="col s6 m3 l3">
+                        <a href="{% url 'domain' domain.name %}">{{ domain.name }}</a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <div id="n" class="row">
+            <h3 class="char-cate">N.</h3>
+            {% for domain in domains %}
+                {% if domain.name|slice:'0:1'|lower == 'n' %}
+                    <div class="col s6 m3 l3">
+                        <a href="{% url 'domain' domain.name %}">{{ domain.name }}</a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div id="o" class="row">
+            <h3 class="char-cate">O.</h3>
+            {% for domain in domains %}
+                {% if domain.name|slice:'0:1'|lower == 'o' %}
+                    <div class="col s6 m3 l3">
+                        <a href="{% url 'domain' domain.name %}">{{ domain.name }}</a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        p
+        <div id="p" class="row">
+            <h3 class="char-cate">P.</h3>
+            {% for domain in domains %}
+                {% if domain.name|slice:'0:1'|lower == 'p' %}
+                    <div class="col s6 m3 l3">
+                        <a href="{% url 'domain' domain.name %}">{{ domain.name }}</a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div id="q" class="row">
+            <h3 class="char-cate">Q.</h3>
+            {% for domain in domains %}
+                {% if domain.name|slice:'0:1'|lower == 'q' %}
+                    <div class="col s6 m3 l3">
+                        <a href="{% url 'domain' domain.name %}">{{ domain.name }}</a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div id="r" class="row">
+            <h3 class="char-cate">R.</h3>
+            {% for domain in domains %}
+                {% if domain.name|slice:'0:1'|lower == 'r' %}
+                    <div class="col s6 m3 l3">
+                        <a href="{% url 'domain' domain.name %}">{{ domain.name }}</a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div id="s" class="row">
+            <h3 class="char-cate">T.</h3>
+            {% for domain in domains %}
+                {% if domain.name|slice:'0:1'|lower == 's' %}
+                    <div class="col s6 m3 l3">
+                        <a href="{% url 'domain' domain.name %}">{{ domain.name }}</a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div id="u" class="row">
+            <h3 class="char-cate">U.</h3>
+            {% for domain in domains %}
+                {% if domain.name|slice:'0:1'|lower == 'u' %}
+                    <div class="col s6 m3 l3">
+                        <a href="{% url 'domain' domain.name %}">{{ domain.name }}</a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div id="v" class="row">
+            <h3 class="char-cate">V.</h3>
+            {% for domain in domains %}
+                {% if domain.name|slice:'0:1'|lower == 'v' %}
+                    <div class="col s6 m3 l3">
+                        <a href="{% url 'domain' domain.name %}">{{ domain.name }}</a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div id="w" class="row">
+            <h3 class="char-cate">W.</h3>
+            {% for domain in domains %}
+                {% if domain.name|slice:'0:1'|lower == 'w' %}
+                    <div class="col s6 m3 l3">
+                        <a href="{% url 'domain' domain.name %}">{{ domain.name }}</a>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div id="x" class="row">
+            <h3 class="char-cate">X.</h3>
+            {% for domain in domains %}
+                {% if domain.label|slice:'0:1'|lower == 'x' %}
+                    {% if domain.label|slice:'0:4'|lower == 'xn--' %}
+                        <div class="col s6 m6 l6">
+                            {{ domain.label }} -- <a href="{% url 'domain' domain.name %}">{{ domain.name }}</a>
+                        </div>
+                    {% else %}
+                        <div class="col s6 m6 l6">
+                            <a href="{% url 'domain' domain.name %}">{{ domain.name }}</a>
+                        </div>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    <div id="y" class="row">
+        <h3 class="char-cate">Y.</h3>
         {% for domain in domains %}
-            <tr>
-                <td>
-                    {% if domain.lrm == True %}
-                        <a href="{% url 'domain' domain.name %}">.{{ domain.name }}</a>
-                    {% endif %}
-                    {% if domain.lrm == False %}
-                        <a href="{% url 'domain' domain.name %}">{{ domain.name }}.</a>
-                    {% endif %}
-                </td>
-                <td>{{ domain.label }}</td>
-            </tr>
+            {% if domain.name|slice:'0:1'|lower == 'y' %}
+                <div class="col s6 m3 l3">
+                    <a href="{% url 'domain' domain.name %}">{{ domain.name }}</a>
+                </div>
+            {% endif %}
         {% endfor %}
-        </tbody>
-    </table>
+    </div>
+    <div id="z" class="row">
+        <h3 class="char-cate">Z.</h3>
+        {% for domain in domains %}
+            {% if domain.name|slice:'0:1'|lower == 'z' %}
+                <div class="col s6 m3 l3">
+                    <a href="{% url 'domain' domain.name %}">{{ domain.name }}</a>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+
+    </div>
+
+    <div class="fixed-action-btn toolbar click-to-toggle">
+        <a class="btn-floating btn-large red">
+            <i class="material-icons">menu</i>
+        </a>
+        <ul>
+            <li><a href="#a" class="btn-floating red">A</a></li>
+            <li><a href="#b" class="btn-floating red">B</a></li>
+            <li><a href="#c" class="btn-floating red">C</a></li>
+            <li><a href="#d" class="btn-floating red">D</a></li>
+            <li><a href="#e" class="btn-floating red">E</a></li>
+            <li><a href="#f" class="btn-floating red">F</a></li>
+            <li><a href="#g" class="btn-floating red">G</a></li>
+            <li><a href="#h" class="btn-floating red">H</a></li>
+            <li><a href="#i" class="btn-floating red">I</a></li>
+            <li><a href="#j" class="btn-floating red">J</a></li>
+            <li><a href="#k" class="btn-floating red">K</a></li>
+            <li><a href="#l" class="btn-floating red">L</a></li>
+            <li><a href="#m" class="btn-floating red">M</a></li>
+            <li><a href="#n" class="btn-floating red">N</a></li>
+            <li><a href="#o" class="btn-floating red">O</a></li>
+            <li><a href="#p" class="btn-floating red">P</a></li>
+            <li><a href="#q" class="btn-floating red">Q</a></li>
+            <li><a href="#r" class="btn-floating red">R</a></li>
+            <li><a href="#s" class="btn-floating red">S</a></li>
+            <li><a href="#t" class="btn-floating red">T</a></li>
+            <li><a href="#u" class="btn-floating red">U</a></li>
+            <li><a href="#v" class="btn-floating red">V</a></li>
+            <li><a href="#w" class="btn-floating red">W</a></li>
+            <li><a href="#x" class="btn-floating red">X</a></li>
+            <li><a href="#y" class="btn-floating red">Y</a></li>
+            <li><a href="#z" class="btn-floating red">Z</a></li>
+        </ul>
+    </div>
 
 {% endblock %}
 
 {% block js %}
-    <script>
-        $(document).ready(function() {
-    $('#tlds').DataTable({
-
-    });
-} );
-    </script>
 {% endblock %}

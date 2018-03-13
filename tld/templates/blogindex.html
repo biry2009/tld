@@ -10,7 +10,7 @@
             {% if blog.author %}
                 <div class="chip light-green-text text-darken-2">
                     {% load staticfiles %}
-                    <i class="fa-address-book-o"></i>{{ blog.author|safe }}
+                    <img src="{% static 'imags/administrator.png' %}" alt="Author">{{ blog.author|safe }}
                 </div>
             {% endif %}
             {% if blog.author %}

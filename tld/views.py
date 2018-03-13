@@ -4,6 +4,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import Domain, Registrar, Cheapest, Price
 from .models import Blog, Comment
 from .data import PriceData
+from django.db.models import Max, Min
 
 
 def index(request):
@@ -24,7 +25,7 @@ def review(request, name):
         return render(request, '404.html')
 
 def tlds(request):
-    domains = Domain.objects.order_by("name")
+    domains = Domain.objects.order_by("label")
 
     return render(request, 'tlds.html', {'domains': domains})
 
@@ -34,7 +35,10 @@ def domain(request, name):
 
     if domain_extension:
         prices = domain_extension.price_set.all()
-        content = {'domain': domain_extension, 'prices': prices, }
+        allcount = len(prices)
+        maxprice = prices.aggregate(Max('promo'))
+        minprice = prices.aggregate(Min('promo'))
+        content = {'domain': domain_extension, 'prices': prices, 'count': allcount, 'max': maxprice, 'min': minprice}
 
         return render(request, 'tld_base.html', content)
     else:

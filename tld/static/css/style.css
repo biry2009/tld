@@ -1,6 +1,5 @@
 .task-cat {
-    padding: 4px 12px;
-    margin: 4px 16px;
+    padding: 2px 6px;
     color: #fff;
     font-weight: 400;
     font-size: 0.9rem;
@@ -8,6 +7,55 @@
     -moz-border-radius: 2px;
     border-radius: 2px;
     background-clip: padding-box;
+}
+
+.breadcrumb {
+    padding-top: 20px;
+    color: #757575;
+    font-size: 0.9rem;
+}
+
+.h1-keyword {
+    padding: 0 12px;
+    border-bottom: 3px solid #03A9F4;
+
+}
+
+.set-font-size12 {
+    font-size: 1.2rem;
+}
+
+.price-table-tr {
+    background-color: #757575;
+    color: #fff;
+}
+.price-table-th {
+    border-radius: 0;
+    border-bottom: none !important;
+}
+
+.logo-img {
+    margin-top: 5px;
+}
+
+.registrar-logo-img {
+    vertical-align:text-bottom;
+    width: 30px;
+    padding-right: 6px;
+}
+
+.char-cate {
+    border-left: 6px solid #e53935;
+    padding:0 10px;
+}
+
+.rank-char {
+    border-bottom: 2px solid #fff;
+}
+
+.rank-ul {
+    position:absolute;
+    top: 150px;
 }
 
 .footer-copy {
